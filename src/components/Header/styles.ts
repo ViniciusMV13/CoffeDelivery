@@ -11,6 +11,8 @@ padding: 2rem 10rem;
 nav{
  gap: 0.75rem;
  display: flex;
+ align-items: center;
+justify-content: space-between;
 }
 `
 export const Location = styled.div`
@@ -33,15 +35,28 @@ p{
 `
 
 export const Cart = styled.div`
-div{
-  display: flex;
-  align-items: center;
+display: flex;
+align-items: center;
 justify-content: center;
-}
+svg{
 display: flex;
 align-items: center;
 justify-content: center;
 padding: 0.5rem 0.5rem;
 background: ${(props) => props.theme['yellow-light']};
 color: ${(props) => props.theme['yellow-dark']};
+}
+`
+export const Counter = styled.div`
+p{margin-left: -10px;
+  margin-top: -29px;
+  display: flex;
+align-items: center;
+justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: ${(props) => props.theme['yellow-dark']};
+  color: ${(props) => props.theme['white']};
+}
 `
