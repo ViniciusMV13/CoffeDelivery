@@ -1,13 +1,13 @@
 import {Cart, Counter, HeaderContainer, Location} from "./styles";
 import { MapPin, ShoppingCart } from 'phosphor-react'
-import LogoCoffeDelivery from '../../assets/LogoCoffeDelivery.svg';
+import LogoCoffeeDelivery from '../../assets/LogoCoffeeDelivery.svg';
 
 
 export function Header() {
   return (
     <HeaderContainer>
       <span>
-        <img src={LogoCoffeDelivery} alt="" />
+        <img src={LogoCoffeeDelivery} alt="" />
       </span>
       <nav>
         <Location>
