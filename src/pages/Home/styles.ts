@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 
-
 export const HomeContainer = styled.div`
+
+`
+
+export const Intro = styled.div`
 width: 100%;
 height: 34rem;
 background-repeat: no-repeat;
-background-size: 100%;
+background-size: cover;
+background-position: center;
 padding: 5.75rem 10rem;
 display: flex;
 justify-content: space-between;
@@ -37,7 +41,7 @@ margin-top: 4.125rem;
 
 `
 
-const Item = styled.div`
+export const Item = styled.div`
 color: ${(props) => props.theme['base-text']};
 margin-bottom: 1.250rem;
 width: 50%;
@@ -53,23 +57,10 @@ svg {
   color: white;
 }
 `
-export const Item1 = styled(Item)`
-svg{
-background: ${(props) => props.theme['yellow-dark']};;
-}
-`
-export const Item2 = styled(Item)`
-svg {
-background: ${(props) => props.theme['base-text']};;
-}
-`
-export const Item3 = styled(Item)`
-svg {
-background: ${(props) => props.theme['yellow']};;
-}
-`
-export const Item4 = styled(Item)`
-svg {
-background: ${(props) => props.theme['purple']};;
-}
+export const CoffeeList = styled.div`
+width: 100%;
+height: 100%;
+padding: 5.75rem 10rem;
+display: flex;
+justify-content: space-between;
 `
