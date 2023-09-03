@@ -57,10 +57,16 @@ svg {
   color: white;
 }
 `
+export const CoffeeListTitle = styled.div`
+width: 100%;
+height: 100%;
+padding: 5.75rem 10rem;
+`
 export const CoffeeList = styled.div`
 width: 100%;
 height: 100%;
 padding: 5.75rem 10rem;
 display: flex;
 justify-content: space-between;
+
 `

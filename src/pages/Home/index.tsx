@@ -1,8 +1,9 @@
-import {HomeContainer, Intro, InfoContainer, Item, Itens, CoffeeList} from './styles'
+import {HomeContainer, Intro, InfoContainer, Item, Itens, CoffeeList, CoffeeListTitle} from './styles'
 import Background from "./../../assets/Background.svg"
 import CoffeeImg from "./../../assets/Coffee.svg"
 import { Timer, ShoppingCart, Package, Coffee } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
+import { CoffeeCard } from './components/CoffeeCard'
 
 export function Home(){
   return(
@@ -22,9 +23,15 @@ export function Home(){
         <img src={CoffeeImg}/>
       </span>
     </Intro>
-    <CoffeeList>
+    <CoffeeListTitle>
       <h2>Nossos cafés</h2>
-    </CoffeeList>
+      <CoffeeList>
+      <CoffeeCard></CoffeeCard>
+      <CoffeeCard></CoffeeCard>
+      <CoffeeCard></CoffeeCard>
+      <CoffeeCard></CoffeeCard>
+      </CoffeeList>
+    </CoffeeListTitle>
     </HomeContainer>
   )
 }

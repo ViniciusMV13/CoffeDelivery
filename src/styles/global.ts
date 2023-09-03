@@ -8,7 +8,6 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  background: ${(props) => props.theme['base-card']};
   -webkit-font-smoothing: antialiased;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
