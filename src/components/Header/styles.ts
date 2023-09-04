@@ -5,7 +5,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 
-padding: 2rem clamp(2rem, 100%, 10rem);
+padding: 2rem clamp(2rem, 100%, 20rem);
 
 
 nav{

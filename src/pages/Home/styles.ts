@@ -10,7 +10,7 @@ height: 34rem;
 background-repeat: no-repeat;
 background-size: cover;
 background-position: center;
-padding: 5.75rem 10rem;
+padding: 5.75rem 20rem;
 display: flex;
 justify-content: space-between;
 
@@ -60,12 +60,12 @@ svg {
 export const CoffeeListTitle = styled.div`
 width: 100%;
 height: 100%;
-padding: 5.75rem 10rem;
+padding: 5.75rem 20rem;
 `
 export const CoffeeList = styled.div`
 width: 100%;
 height: 100%;
-padding: 5.75rem 10rem;
+padding: 5.75rem 0;
 display: flex;
 justify-content: space-between;
 
