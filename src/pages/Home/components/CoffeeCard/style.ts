@@ -11,6 +11,7 @@ justify-content: space-between;
 flex-shrink: 0;
 background: ${(props) => props.theme['base-card']};
 border-radius: 6px 36px 6px 36px ;
+margin-bottom: 2.5rem;
 `
 
 
@@ -52,12 +53,17 @@ line-height: 130%;
 text-align: center;
 `
 export const BuyCoffee = styled.div`
-width: 16rem;
+width: 100%;
 align-items: center;
-padding: 1.5rem 1.25rem;
+padding: 1.5rem 0.25rem;
 display: flex;
 justify-content: space-between;
 `
+
+export const BuyActions = styled.div`
+display: flex;
+gap: 0.5rem;
+` 
 
 export const CoffeePrice = styled.div`
 color: ${(props) => props.theme['base-text']};
@@ -99,6 +105,11 @@ justify-content: center;
 background: ${(props) => props.theme['base-button']};
 `
 export const CoffeeQuantityNumber = styled.p`
+color: ${(props) => props.theme['base-title']};
+font-size: 1rem;
+line-height: 130%;
+text-align: center;
+width: 1.25rem;
 `
 
 
@@ -109,6 +120,7 @@ justify-content: center;
 align-items: center;
 gap: 0.5rem;
 border-radius: 6px;
-
+border: none;
+background: ${(props) => props.theme['purple-dark']} ;
 
 `

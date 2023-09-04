@@ -66,7 +66,7 @@ export const CoffeeList = styled.div`
 width: 100%;
 height: 100%;
 padding: 5.75rem 0;
-display: flex;
+display: grid;
+grid-template-columns: repeat(auto-fill, 18rem);
 justify-content: space-between;
-
 `

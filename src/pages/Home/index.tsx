@@ -30,6 +30,13 @@ export function Home(){
       <CoffeeCard></CoffeeCard>
       <CoffeeCard></CoffeeCard>
       <CoffeeCard></CoffeeCard>
+      <CoffeeCard></CoffeeCard>
+      <CoffeeCard></CoffeeCard>
+      <CoffeeCard></CoffeeCard>
+      <CoffeeCard></CoffeeCard>
+      <CoffeeCard></CoffeeCard>
+      <CoffeeCard></CoffeeCard>
+      <CoffeeCard></CoffeeCard>
       </CoffeeList>
     </CoffeeListTitle>
     </HomeContainer>
