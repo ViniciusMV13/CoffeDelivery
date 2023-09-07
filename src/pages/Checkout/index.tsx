@@ -1,10 +1,10 @@
 import { defaultTheme } from "../../styles/themes/default";
 import {
-  AdressInfo,
-  AdressInfoHeader,
-  AdressInfoHeaderSubtitle,
-  AdressInfoHeaderTexts,
-  AdressInfoHeaderTitle,
+  AdressAndPaymentInfo,
+  InfoHeader,
+  InfoHeaderSubtitle,
+  InfoHeaderTexts,
+  InfoHeaderTitle,
   BairroInput,
   CepInput,
   CheckoutContainer,
@@ -15,12 +15,12 @@ import {
   InfoContainer,
   NumeroInput,
   OrderConfirmation,
-  PaymentInfo,
   RuaInput,
   UFInput,
+  PaymentWay,
 } from "./styles";
 
-import { MapPinLine } from "phosphor-react";
+import { CurrencyDollar, MapPinLine } from "phosphor-react";
 
 export function Checkout() {
   return (
@@ -28,23 +28,23 @@ export function Checkout() {
       <CompleteYourOrder>
         Complete seu pedido
         <CompleteYourOrderActions>
-          <AdressInfo>
-            <AdressInfoHeader>
+          <AdressAndPaymentInfo>
+            <InfoHeader>
               <span>
                 <MapPinLine
                   size={22}
                   style={{ color: defaultTheme["yellow-dark"] }}
                 />
               </span>
-              <AdressInfoHeaderTexts>
-                <AdressInfoHeaderTitle>
+              <InfoHeaderTexts>
+                <InfoHeaderTitle>
                   Endereço de Entrega
-                </AdressInfoHeaderTitle>
-                <AdressInfoHeaderSubtitle>
+                </InfoHeaderTitle>
+                <InfoHeaderSubtitle>
                   Informe o endereço onde deseja receber seu pedido
-                </AdressInfoHeaderSubtitle>
-              </AdressInfoHeaderTexts>
-            </AdressInfoHeader>
+                </InfoHeaderSubtitle>
+              </InfoHeaderTexts>
+            </InfoHeader>
             <CepInput id="Cep"
             placeholder="CEP"/>
             <RuaInput id="Rua"
@@ -62,8 +62,23 @@ export function Checkout() {
               <UFInput id="UF"
               placeholder="UF"/>
             </InfoContainer>
-          </AdressInfo>
-          <PaymentInfo></PaymentInfo>
+          </AdressAndPaymentInfo>
+          <AdressAndPaymentInfo>
+            <InfoHeader>
+              <span>
+                <CurrencyDollar size={22} style={{ color: defaultTheme["purple"] }}/>
+              </span>
+              <InfoHeaderTexts>
+                <InfoHeaderTitle>Pagamento</InfoHeaderTitle>
+                <InfoHeaderSubtitle>O pagamento é feito na entrega. Escolha a forma que deseja pagar</InfoHeaderSubtitle>
+              </InfoHeaderTexts>
+            </InfoHeader>
+            <InfoContainer>
+              <PaymentWay value="CARTÃO DE CREDITO"></PaymentWay>
+              <PaymentWay>CARTÃO DE DEBITO</PaymentWay>
+              <PaymentWay>DINHEIRO</PaymentWay>
+            </InfoContainer>
+          </AdressAndPaymentInfo>
         </CompleteYourOrderActions>
       </CompleteYourOrder>
       <OrderConfirmation></OrderConfirmation>

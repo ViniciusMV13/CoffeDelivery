@@ -21,7 +21,7 @@ align-items: flex-start;
 gap: 0.75rem;
 `
 
-export const AdressInfo = styled.div`
+export const AdressAndPaymentInfo = styled.div`
 display: flex;
 padding: 2.25rem;
 flex-direction: column;
@@ -31,25 +31,25 @@ align-self: stretch;
 border-radius: 6px;
 background:${(props) => props.theme['base-card']} ;
 `
-export const AdressInfoHeader = styled.div`
+export const InfoHeader = styled.div`
 display: flex;
 align-items: flex-start;
 gap: 0.5rem;
 align-self: stretch;
 `
-export const AdressInfoHeaderTexts = styled.div`
+export const InfoHeaderTexts = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
 gap: 2px;
 flex: 1 0 0;
 `
-export const AdressInfoHeaderTitle = styled.p`
+export const InfoHeaderTitle = styled.p`
 font-size: 1rem;
 line-height: 130%;
 color: ${(props) => props.theme['base-subtitle']};
 `
-export const AdressInfoHeaderSubtitle = styled.p`
+export const InfoHeaderSubtitle = styled.p`
 font-size: 0.875rem;
 line-height: 130%;
 color: ${(props) => props.theme['base-text']};
@@ -103,8 +103,14 @@ width: 100%;
 gap: 0.75rem;
 `
 
-export const PaymentWay = styled.div`
-
+export const PaymentWay = styled.select`
+display: flex;
+padding: 1rem;
+align-items: center;
+gap: 0.75rem;
+flex: 1 0 0;
+border-radius: 6px;
+background: ${(props) => props.theme['base-button']};
 `
 export const OrderConfirmation = styled.div`
 width: 28rem;
