@@ -1,4 +1,5 @@
-import { defaultTheme } from "../../styles/themes/default";
+import { defaultTheme } from '../../styles/themes/default'
+import { CoffeeToBuy } from './Components/CoffeeToBuy'
 import {
   AdressAndPaymentInfo,
   InfoHeader,
@@ -18,70 +19,95 @@ import {
   RuaInput,
   UFInput,
   PaymentWay,
-} from "./styles";
+  PaymentName,
+  ContainerTitle,
+  OrderConfirmationCard,
+} from './styles'
 
-import { CurrencyDollar, MapPinLine } from "phosphor-react";
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from 'phosphor-react'
 
 export function Checkout() {
   return (
     <CheckoutContainer>
       <CompleteYourOrder>
-        Complete seu pedido
+        <ContainerTitle>Complete seu pedido</ContainerTitle>
         <CompleteYourOrderActions>
           <AdressAndPaymentInfo>
             <InfoHeader>
               <span>
                 <MapPinLine
                   size={22}
-                  style={{ color: defaultTheme["yellow-dark"] }}
+                  style={{ color: defaultTheme['yellow-dark'] }}
                 />
               </span>
               <InfoHeaderTexts>
-                <InfoHeaderTitle>
-                  Endereço de Entrega
-                </InfoHeaderTitle>
+                <InfoHeaderTitle>Endereço de Entrega</InfoHeaderTitle>
                 <InfoHeaderSubtitle>
                   Informe o endereço onde deseja receber seu pedido
                 </InfoHeaderSubtitle>
               </InfoHeaderTexts>
             </InfoHeader>
-            <CepInput id="Cep"
-            placeholder="CEP"/>
-            <RuaInput id="Rua"
-            placeholder="Rua"/>
+            <CepInput id="Cep" placeholder="CEP" />
+            <RuaInput id="Rua" placeholder="Rua" />
             <InfoContainer>
-              <NumeroInput id="Numero"
-              placeholder="Número"/>
-              <ComplementoInput id="Complemento" placeholder="Complemento"/>
+              <NumeroInput id="Numero" placeholder="Número" />
+              <ComplementoInput id="Complemento" placeholder="Complemento" />
             </InfoContainer>
             <InfoContainer>
-              <BairroInput id="Bairro"
-              placeholder="Bairro"/>
-              <CidadeInput id="Cidade"
-              placeholder="Cidade"/>
-              <UFInput id="UF"
-              placeholder="UF"/>
+              <BairroInput id="Bairro" placeholder="Bairro" />
+              <CidadeInput id="Cidade" placeholder="Cidade" />
+              <UFInput id="UF" placeholder="UF" />
             </InfoContainer>
           </AdressAndPaymentInfo>
           <AdressAndPaymentInfo>
             <InfoHeader>
               <span>
-                <CurrencyDollar size={22} style={{ color: defaultTheme["purple"] }}/>
+                <CurrencyDollar
+                  size={22}
+                  style={{ color: defaultTheme.purple }}
+                />
               </span>
               <InfoHeaderTexts>
                 <InfoHeaderTitle>Pagamento</InfoHeaderTitle>
-                <InfoHeaderSubtitle>O pagamento é feito na entrega. Escolha a forma que deseja pagar</InfoHeaderSubtitle>
+                <InfoHeaderSubtitle>
+                  O pagamento é feito na entrega. Escolha a forma que deseja
+                  pagar
+                </InfoHeaderSubtitle>
               </InfoHeaderTexts>
             </InfoHeader>
             <InfoContainer>
-              <PaymentWay value="CARTÃO DE CREDITO"></PaymentWay>
-              <PaymentWay>CARTÃO DE DEBITO</PaymentWay>
-              <PaymentWay>DINHEIRO</PaymentWay>
+              <PaymentWay>
+                <input type="radio" />
+                <CreditCard size={16} style={{ color: defaultTheme.purple }} />
+                <PaymentName>CARTÃO DE CREDITO</PaymentName>
+              </PaymentWay>
+              <PaymentWay>
+                <input type="radio" />
+                <Bank size={16} style={{ color: defaultTheme.purple }} />
+                <PaymentName>CARTÃO DE DEBITO</PaymentName>
+              </PaymentWay>
+              <PaymentWay>
+                <input type="radio" />
+                <Money size={16} style={{ color: defaultTheme.purple }} />
+                <PaymentName>DINHEIRO</PaymentName>
+              </PaymentWay>
             </InfoContainer>
           </AdressAndPaymentInfo>
         </CompleteYourOrderActions>
       </CompleteYourOrder>
-      <OrderConfirmation></OrderConfirmation>
+      <OrderConfirmation>
+        <ContainerTitle>Cafés selecionados</ContainerTitle>
+        <OrderConfirmationCard>
+          <CoffeeToBuy />
+          <CoffeeToBuy />
+        </OrderConfirmationCard>
+      </OrderConfirmation>
     </CheckoutContainer>
-  );
+  )
 }

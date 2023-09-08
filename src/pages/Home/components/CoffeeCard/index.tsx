@@ -13,10 +13,10 @@ import {
   CoffeeQuantityNumber,
   CoffeeTag,
   CoffeeValue,
-} from "./style";
-import ExpressoTradicional from "./../../../../assets/CoffeeList/Expresso_tradicional.png";
-import {Minus, Plus, ShoppingCart} from 'phosphor-react'
-import { defaultTheme } from "../../../../styles/themes/default";
+} from './style'
+import ExpressoTradicional from './../../../../assets/CoffeeList/Expresso_tradicional.png'
+import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { defaultTheme } from '../../../../styles/themes/default'
 
 export function CoffeeCard() {
   return (
@@ -38,16 +38,22 @@ export function CoffeeCard() {
         <BuyActions>
           <CoffeeQuantity>
             <CoffeeQuantityButton>
-             <Minus size={14} style={{color: defaultTheme['purple']}}/>
+              <Minus size={14} style={{ color: defaultTheme.purple }} />
             </CoffeeQuantityButton>
             <CoffeeQuantityNumber>0</CoffeeQuantityNumber>
             <CoffeeQuantityButton>
-              <Plus size={14} style={{color: defaultTheme['purple']}}/>
+              <Plus size={14} style={{ color: defaultTheme.purple }} />
             </CoffeeQuantityButton>
           </CoffeeQuantity>
-          <CoffeeCartAdd><ShoppingCart size={22} weight="fill" style={{color: defaultTheme['base-card']}}/></CoffeeCartAdd>
+          <CoffeeCartAdd>
+            <ShoppingCart
+              size={22}
+              weight="fill"
+              style={{ color: defaultTheme['base-card'] }}
+            />
+          </CoffeeCartAdd>
         </BuyActions>
       </BuyCoffee>
     </CoffeeContainer>
-  );
+  )
 }
