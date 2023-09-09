@@ -1,5 +1,6 @@
 import { defaultTheme } from '../../styles/themes/default'
 import { CoffeeToBuy } from './Components/CoffeeToBuy'
+import { Divider } from './Components/Divider'
 import {
   AdressAndPaymentInfo,
   InfoHeader,
@@ -22,6 +23,13 @@ import {
   PaymentName,
   ContainerTitle,
   OrderConfirmationCard,
+  PricesContainer,
+  PricesTextFrame,
+  PricesDescription,
+  PricesNumber,
+  FinalPrice,
+  OrderConfirmationButton,
+  OrderConfirmationButtonText,
 } from './styles'
 
 import {
@@ -105,7 +113,28 @@ export function Checkout() {
         <ContainerTitle>Cafés selecionados</ContainerTitle>
         <OrderConfirmationCard>
           <CoffeeToBuy />
+          <Divider />
           <CoffeeToBuy />
+          <Divider />
+          <PricesContainer>
+            <PricesTextFrame>
+              <PricesDescription>Total de Itens</PricesDescription>
+              <PricesNumber>R$ 19,80</PricesNumber>
+            </PricesTextFrame>
+            <PricesTextFrame>
+              <PricesDescription>Entrega</PricesDescription>
+              <PricesNumber>R$ 19,80</PricesNumber>
+            </PricesTextFrame>
+            <PricesTextFrame>
+              <FinalPrice>Total</FinalPrice>
+              <FinalPrice>R$ 39,20</FinalPrice>
+            </PricesTextFrame>
+          </PricesContainer>
+          <OrderConfirmationButton>
+            <OrderConfirmationButtonText>
+              CONFIRMAR PEDIDO
+            </OrderConfirmationButtonText>
+          </OrderConfirmationButton>
         </OrderConfirmationCard>
       </OrderConfirmation>
     </CheckoutContainer>

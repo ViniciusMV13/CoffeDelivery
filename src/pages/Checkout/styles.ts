@@ -140,3 +140,52 @@ export const OrderConfirmationCard = styled.div`
   border-radius: 6px 44px;
   background: ${(props) => props.theme['base-card']};
 `
+export const PricesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.75rem;
+  align-self: stretch;
+`
+export const PricesTextFrame = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+`
+export const PricesDescription = styled.p`
+  text-align: right;
+  color: ${(props) => props.theme['base-text']};
+  line-height: 130%;
+  font-size: 0.875rem;
+`
+
+export const PricesNumber = styled.p`
+  text-align: right;
+  color: ${(props) => props.theme['base-text']};
+  line-height: 130%;
+`
+export const FinalPrice = styled.p`
+  text-align: right;
+  color: ${(props) => props.theme['base-subtitle']};
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 130%;
+`
+export const OrderConfirmationButton = styled.button`
+  display: flex;
+  padding: 0.75rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  align-self: stretch;
+  border-radius: 6px;
+  background: ${(props) => props.theme.yellow};
+`
+export const OrderConfirmationButtonText = styled.p`
+  color: ${(props) => props.theme.white};
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 160%;
+`

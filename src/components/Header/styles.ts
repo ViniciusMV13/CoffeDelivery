@@ -33,7 +33,8 @@ export const Location = styled.div`
   }
 `
 
-export const Cart = styled.div`
+export const Cart = styled.button`
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,6 +49,7 @@ export const Cart = styled.div`
 `
 export const Counter = styled.div`
   p {
+    position: absolute;
     margin-left: -10px;
     margin-top: -29px;
     display: flex;

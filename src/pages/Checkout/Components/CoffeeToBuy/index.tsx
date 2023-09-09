@@ -39,7 +39,7 @@ export function CoffeeToBuy() {
           </CoffeeActions>
         </CoffeeDetails>
       </CoffeeInfo>
-      <CoffeePrice></CoffeePrice>
+      <CoffeePrice>R$ 9,90</CoffeePrice>
     </CoffeeContainer>
   )
 }

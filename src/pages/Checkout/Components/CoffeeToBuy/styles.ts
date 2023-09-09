@@ -38,9 +38,12 @@ export const CoffeePrice = styled.p`
   font-size: 1rem;
   font-weight: 700;
   line-height: 130%;
+  text-align: right;
+  color: ${(props) => props.theme['base-text']};
 `
 
-export const CoffeeRemove = styled.div`
+export const CoffeeRemove = styled.button`
+  border: none;
   display: flex;
   height: 2rem;
   padding: 0 0.5rem;
