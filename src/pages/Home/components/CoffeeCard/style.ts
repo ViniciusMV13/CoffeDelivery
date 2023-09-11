@@ -25,6 +25,11 @@ export const CoffeeInfo = styled.div`
     margin-top: -20px;
   }
 `
+export const CoffeeTagContainer = styled.div`
+  display: flex;
+  gap: 0.25rem;
+`
+
 export const CoffeeTag = styled.p`
   background: ${(props) => props.theme['yellow-light']};
   color: ${(props) => props.theme['yellow-dark']};
@@ -35,6 +40,7 @@ export const CoffeeTag = styled.p`
   line-height: 130%;
   text-transform: uppercase;
   margin-top: 0.75rem;
+  text-align: center;
 `
 export const CoffeeName = styled.p`
   color: ${(props) => props.theme['base-subtitle']};

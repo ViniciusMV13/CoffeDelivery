@@ -12,36 +12,70 @@ import {
   CoffeeQuantityButton,
   CoffeeQuantityNumber,
   CoffeeTag,
+  CoffeeTagContainer,
   CoffeeValue,
 } from './style'
-import ExpressoTradicional from './../../../../assets/CoffeeList/Expresso_tradicional.png'
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import { defaultTheme } from '../../../../styles/themes/default'
+import { useState } from 'react'
 
-export function CoffeeCard() {
+type TQuantityButtonType = 'add' | 'remove'
+
+type TCoffee = {
+  id: number
+  name: string
+  description: string
+  tags: string[]
+  price: number
+  imgPath: string
+}
+
+interface ICoffeeProps {
+  coffee: TCoffee
+}
+
+export function CoffeeCard({ coffee }: ICoffeeProps) {
+  const [quantity, setQuantity] = useState(1)
+
+  const priceFormatted = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(coffee.price)
+
+  function handleQuantity(type: TQuantityButtonType) {
+    if (type === 'remove') {
+      if (quantity > 1) {
+        setQuantity(quantity - 1)
+      }
+      return
+    }
+    setQuantity(quantity + 1)
+  }
   return (
     <CoffeeContainer>
       <CoffeeInfo>
-        <img src={ExpressoTradicional} alt="" />
-        <CoffeeTag>TRADICIONAL</CoffeeTag>
-        <CoffeeName>Expresso Tradicional</CoffeeName>
-        <CoffeeDescription>
-          O tradicional cafe feito com agua quente e graos moidos
-        </CoffeeDescription>
+        <img src={coffee.imgPath} alt="" />
+        <CoffeeTagContainer>
+          {coffee.tags.map((tags) => (
+            <CoffeeTag key={tags}>{tags}</CoffeeTag>
+          ))}
+        </CoffeeTagContainer>
+        <CoffeeName>{coffee.name}</CoffeeName>
+        <CoffeeDescription>{coffee.description}</CoffeeDescription>
       </CoffeeInfo>
 
       <BuyCoffee>
         <CoffeePrice>
           <CoffeeCoin>R$</CoffeeCoin>
-          <CoffeeValue>9,90</CoffeeValue>
+          <CoffeeValue>{priceFormatted}</CoffeeValue>
         </CoffeePrice>
         <BuyActions>
           <CoffeeQuantity>
-            <CoffeeQuantityButton>
+            <CoffeeQuantityButton onClick={() => handleQuantity('remove')}>
               <Minus size={14} style={{ color: defaultTheme.purple }} />
             </CoffeeQuantityButton>
-            <CoffeeQuantityNumber>0</CoffeeQuantityNumber>
-            <CoffeeQuantityButton>
+            <CoffeeQuantityNumber>{quantity}</CoffeeQuantityNumber>
+            <CoffeeQuantityButton onClick={() => handleQuantity('add')}>
               <Plus size={14} style={{ color: defaultTheme.purple }} />
             </CoffeeQuantityButton>
           </CoffeeQuantity>

@@ -12,7 +12,7 @@ import CoffeeImg from './../../assets/Coffee.svg'
 import { Timer, ShoppingCart, Package, Coffee } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
 import { CoffeeCard } from './components/CoffeeCard'
-
+import { coffees } from './util/coffees.json'
 export function Home() {
   return (
     <HomeContainer>
@@ -65,17 +65,9 @@ export function Home() {
       <CoffeeListTitle>
         <h2>Nossos cafés</h2>
         <CoffeeList>
-          <CoffeeCard></CoffeeCard>
-          <CoffeeCard></CoffeeCard>
-          <CoffeeCard></CoffeeCard>
-          <CoffeeCard></CoffeeCard>
-          <CoffeeCard></CoffeeCard>
-          <CoffeeCard></CoffeeCard>
-          <CoffeeCard></CoffeeCard>
-          <CoffeeCard></CoffeeCard>
-          <CoffeeCard></CoffeeCard>
-          <CoffeeCard></CoffeeCard>
-          <CoffeeCard></CoffeeCard>
+          {coffees.map((coffee) => (
+            <CoffeeCard key={coffee.id} coffee={coffee} />
+          ))}
         </CoffeeList>
       </CoffeeListTitle>
     </HomeContainer>
