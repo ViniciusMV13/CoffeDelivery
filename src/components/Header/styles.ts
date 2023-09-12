@@ -1,6 +1,10 @@
 import styled from 'styled-components'
-
+export const HeaderFixed = styled.div``
 export const HeaderContainer = styled.header`
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: ${(props) => props.theme.background};
   display: flex;
   align-items: center;
   justify-content: space-between;

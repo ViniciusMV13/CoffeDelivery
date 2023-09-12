@@ -183,6 +183,10 @@ export const OrderConfirmationButton = styled.button`
   border-radius: 6px;
   background: ${(props) => props.theme.yellow};
 `
+export const CoffeeShowContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 export const OrderConfirmationButtonText = styled.p`
   color: ${(props) => props.theme.white};
   font-weight: 700;

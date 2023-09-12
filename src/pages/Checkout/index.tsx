@@ -1,4 +1,6 @@
+import { useCart } from '../../hooks/useCart'
 import { defaultTheme } from '../../styles/themes/default'
+import { formatMoney } from '../../utils/formatMoney'
 import { CoffeeToBuy } from './Components/CoffeeToBuy'
 import { Divider } from './Components/Divider'
 import {
@@ -30,6 +32,7 @@ import {
   FinalPrice,
   OrderConfirmationButton,
   OrderConfirmationButtonText,
+  CoffeeShowContainer,
 } from './styles'
 
 import {
@@ -40,7 +43,15 @@ import {
   Money,
 } from 'phosphor-react'
 
+const deliveryPrice = 8.9
 export function Checkout() {
+  const { cartItems, cartItemsTotal } = useCart()
+
+  const cartTotal = deliveryPrice + cartItemsTotal
+
+  const formattedItemsTotal = formatMoney(cartItemsTotal)
+  const formattedCartTotal = formatMoney(cartTotal)
+  const formattedDeliveryPrice = formatMoney(deliveryPrice)
   return (
     <CheckoutContainer>
       <CompleteYourOrder>
@@ -111,31 +122,42 @@ export function Checkout() {
       </CompleteYourOrder>
       <OrderConfirmation>
         <ContainerTitle>Cafés selecionados</ContainerTitle>
-        <OrderConfirmationCard>
-          <CoffeeToBuy />
-          <Divider />
-          <CoffeeToBuy />
-          <Divider />
-          <PricesContainer>
-            <PricesTextFrame>
-              <PricesDescription>Total de Itens</PricesDescription>
-              <PricesNumber>R$ 19,80</PricesNumber>
-            </PricesTextFrame>
-            <PricesTextFrame>
-              <PricesDescription>Entrega</PricesDescription>
-              <PricesNumber>R$ 19,80</PricesNumber>
-            </PricesTextFrame>
-            <PricesTextFrame>
-              <FinalPrice>Total</FinalPrice>
-              <FinalPrice>R$ 39,20</FinalPrice>
-            </PricesTextFrame>
-          </PricesContainer>
-          <OrderConfirmationButton>
-            <OrderConfirmationButtonText>
-              CONFIRMAR PEDIDO
-            </OrderConfirmationButtonText>
-          </OrderConfirmationButton>
-        </OrderConfirmationCard>
+
+        {cartItemsTotal ? (
+          <OrderConfirmationCard>
+            {cartItems.map((Item) => (
+              <CoffeeShowContainer key={Item.id}>
+                <CoffeeToBuy key={Item.id} coffee={Item} />
+                <Divider key={Item.name} />
+              </CoffeeShowContainer>
+            ))}
+
+            <PricesContainer>
+              <PricesTextFrame>
+                <PricesDescription>Total de Itens</PricesDescription>
+                <PricesNumber>R$ {formattedItemsTotal}</PricesNumber>
+              </PricesTextFrame>
+              <PricesTextFrame>
+                <PricesDescription>Entrega</PricesDescription>
+                <PricesNumber>R$ {formattedDeliveryPrice}</PricesNumber>
+              </PricesTextFrame>
+              <PricesTextFrame>
+                <FinalPrice>Total</FinalPrice>
+                <FinalPrice>R$ {formattedCartTotal}</FinalPrice>
+              </PricesTextFrame>
+            </PricesContainer>
+
+            <OrderConfirmationButton>
+              <OrderConfirmationButtonText>
+                CONFIRMAR PEDIDO
+              </OrderConfirmationButtonText>
+            </OrderConfirmationButton>
+          </OrderConfirmationCard>
+        ) : (
+          <OrderConfirmationCard>
+            <h3>Nenhum café selecionado :c</h3>
+          </OrderConfirmationCard>
+        )}
       </OrderConfirmation>
     </CheckoutContainer>
   )

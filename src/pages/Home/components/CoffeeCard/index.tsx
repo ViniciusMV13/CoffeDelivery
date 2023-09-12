@@ -18,10 +18,12 @@ import {
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import { defaultTheme } from '../../../../styles/themes/default'
 import { useState } from 'react'
+import { useCart } from '../../../../hooks/useCart'
+import { formatMoney } from '../../../../utils/formatMoney'
 
 type TQuantityButtonType = 'add' | 'remove'
 
-type TCoffee = {
+export type TCoffee = {
   id: number
   name: string
   description: string
@@ -35,12 +37,19 @@ interface ICoffeeProps {
 }
 
 export function CoffeeCard({ coffee }: ICoffeeProps) {
+  const { addCoffeeToCart } = useCart()
+
+  function handleAddToCart() {
+    const coffeeToAdd = {
+      ...coffee,
+      quantity,
+    }
+    addCoffeeToCart(coffeeToAdd)
+  }
+
   const [quantity, setQuantity] = useState(1)
 
-  const priceFormatted = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(coffee.price)
+  const priceFormatted = formatMoney(coffee.price)
 
   function handleQuantity(type: TQuantityButtonType) {
     if (type === 'remove') {
@@ -79,7 +88,7 @@ export function CoffeeCard({ coffee }: ICoffeeProps) {
               <Plus size={14} style={{ color: defaultTheme.purple }} />
             </CoffeeQuantityButton>
           </CoffeeQuantity>
-          <CoffeeCartAdd>
+          <CoffeeCartAdd onClick={handleAddToCart}>
             <ShoppingCart
               size={22}
               weight="fill"

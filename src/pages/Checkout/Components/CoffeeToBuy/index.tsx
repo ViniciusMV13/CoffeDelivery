@@ -11,23 +11,30 @@ import {
   CoffeeQuantityNumber,
   CoffeeQuantity,
 } from './styles'
-import ExpressoTradicional from './../../../../assets/CoffeeList/Expresso_tradicional.png'
 import { defaultTheme } from '../../../../styles/themes/default'
 import { Minus, Plus, Trash } from 'phosphor-react'
+import { ICartItem } from '../../../../contexts/CartContext'
+import { formatMoney } from '../../../../utils/formatMoney'
 
-export function CoffeeToBuy() {
+interface ICoffeCartCardProps {
+  coffee: ICartItem
+}
+
+export function CoffeeToBuy({ coffee }: ICoffeCartCardProps) {
+  const totalPrice = coffee.price * coffee.quantity
+  const priceFormatted = formatMoney(totalPrice)
   return (
     <CoffeeContainer>
       <CoffeeInfo>
-        <img src={ExpressoTradicional} alt="" />
+        <img src={coffee.imgPath} alt="" />
         <CoffeeDetails>
-          <CoffeeName>Expresso Tradicional</CoffeeName>
+          <CoffeeName>{coffee.name}</CoffeeName>
           <CoffeeActions>
             <CoffeeQuantity>
               <CoffeeQuantityButton>
                 <Minus size={14} style={{ color: defaultTheme.purple }} />
               </CoffeeQuantityButton>
-              <CoffeeQuantityNumber>0</CoffeeQuantityNumber>
+              <CoffeeQuantityNumber>{coffee.quantity}</CoffeeQuantityNumber>
               <CoffeeQuantityButton>
                 <Plus size={14} style={{ color: defaultTheme.purple }} />
               </CoffeeQuantityButton>
@@ -39,7 +46,7 @@ export function CoffeeToBuy() {
           </CoffeeActions>
         </CoffeeDetails>
       </CoffeeInfo>
-      <CoffeePrice>R$ 9,90</CoffeePrice>
+      <CoffeePrice>{priceFormatted}</CoffeePrice>
     </CoffeeContainer>
   )
 }
