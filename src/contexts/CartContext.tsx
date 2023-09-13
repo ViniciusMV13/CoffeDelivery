@@ -6,11 +6,18 @@ export interface ICartItem extends TCoffee {
   quantity: number
 }
 
+type TQuantityButtonType = 'add' | 'remove'
+
 interface CartContextType {
   cartItems: ICartItem[]
   cartQuantity: number
   cartItemsTotal: number
   addCoffeeToCart: (coffee: ICartItem) => void
+  handleQuantityCoffeeCart: (
+    coffee: ICartItem,
+    quantityButtonType: TQuantityButtonType,
+  ) => void
+  handleRemoveCoffeeOfList: (coffee: ICartItem) => void
 }
 
 interface CartContextProviderProps {
@@ -44,9 +51,43 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems(newCart)
   }
 
+  function handleQuantityCoffeeCart(
+    coffee: ICartItem,
+    quantityButtonType: TQuantityButtonType,
+  ) {
+    const coffeeInCart = cartItems.findIndex(
+      (cartItem) => cartItem.id === coffee.id,
+    )
+    const newCart = produce(cartItems, (draft) => {
+      if (quantityButtonType === 'add') {
+        draft[coffeeInCart].quantity += 1
+      } else if (coffee.quantity >= 2) {
+        draft[coffeeInCart].quantity -= 1
+      }
+    })
+    setCartItems(newCart)
+  }
+
+  function handleRemoveCoffeeOfList(coffee: ICartItem) {
+    const coffeeToDelete = cartItems.findIndex(
+      (cartItem) => cartItem.id === coffee.id,
+    )
+    const newCart = cartItems.filter(
+      (item) => item !== cartItems[coffeeToDelete],
+    )
+    setCartItems(newCart)
+  }
+
   return (
     <CartContext.Provider
-      value={{ cartItems, addCoffeeToCart, cartQuantity, cartItemsTotal }}
+      value={{
+        cartItems,
+        addCoffeeToCart,
+        cartQuantity,
+        cartItemsTotal,
+        handleQuantityCoffeeCart,
+        handleRemoveCoffeeOfList,
+      }}
     >
       {children}
     </CartContext.Provider>
